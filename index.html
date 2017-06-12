@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body,canvas{
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      
+      var images = {};
+      
+      const addImage = (src) => {
+        var srcsnip = src.split("/");
+        var lastObj = images;
+        for (var i = 1; i < srcsnip.length-1; i++) {
+          const s = srcsnip[i];
+          if (lastObj[s] === undefined) lastObj[s] = {};
+          lastObj = lastObj[s];
+        }
+
+        var id = srcsnip[srcsnip.length-1].split(".")[0];
+        lastObj[id] = new Image();
+        lastObj[id].src = src;
+      }
+      
+      addImage('images/blacklivesmatter/0.png');
+      addImage('images/blacklivesmatter/1.png');
+      addImage('images/blacklivesmatter/2.png');
+      addImage('images/blacklivesmatter/3.png');
+      
+      addImage('images/forrest/0.png');
+      addImage('images/forrest/back1.png');
+      addImage('images/forrest/back2.png');
+      addImage('images/forrest/back3.png');
+      addImage('images/forrest/back4.png');
+      addImage('images/forrest/back5.png');
+      addImage('images/forrest/front1.png');
+      addImage('images/forrest/front2.png');
+      addImage('images/forrest/front3.png');
+      
+    </script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
